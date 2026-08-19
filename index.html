@@ -1,15 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
 
 <title>Operation Sly Fox</title>
 
 <style>
-* {
-    box-sizing: border-box;
-}
+
+/* ================================= */
+/* GLOBAL                            */
+/* ================================= */
 
 html,
 body {
@@ -19,20 +26,44 @@ body {
 }
 
 body {
+
     margin: 0;
+
     min-height: 100vh;
+    min-height: 100dvh;
+
     background: #080a09;
     color: #b7ff5a;
+
     font-family: monospace;
+
     text-align: center;
 }
 
+* {
+    box-sizing: border-box;
+}
+
+button,
+input,
+textarea {
+    max-width: 100%;
+}
+
+
+/* ================================= */
+/* SCREEN                            */
+/* ================================= */
+
 .screen {
+
     width: 100%;
+
     min-height: 100vh;
     min-height: 100dvh;
 
     display: flex;
+
     justify-content: center;
     align-items: center;
 
@@ -40,9 +71,13 @@ body {
 }
 
 .screen .container {
+
     width: 100%;
+
     max-width: 520px;
+
     margin: 0 auto;
+
     text-align: center;
 }
 
@@ -50,71 +85,137 @@ body {
     display: none !important;
 }
 
+
+/* ================================= */
+/* CONTAINER                         */
+/* ================================= */
+
+.container {
+
+    width: 90%;
+
+    max-width: 500px;
+}
+
+
+/* ================================= */
+/* TOP SECRET                        */
+/* ================================= */
+
 .top-secret {
+
     color: #ff3b30;
+
     font-size: 14px;
+
     letter-spacing: 4px;
+
     margin-bottom: 30px;
 }
 
+
+/* ================================= */
+/* HEADINGS                          */
+/* ================================= */
+
 h1 {
+
     font-size: 32px;
+
     letter-spacing: 5px;
+
     margin-bottom: 10px;
 }
 
 h2 {
-    line-height: 1.5;
+
+    line-height: 1.6;
+
+    color: #b7ff5a;
 }
+
+
+/* ================================= */
+/* CASE LABEL                        */
+/* ================================= */
 
 .case {
+
     color: #777;
-    margin-bottom: 40px;
+
+    margin-bottom: 30px;
 }
 
+
+/* ================================= */
+/* BUTTON                            */
+/* ================================= */
+
 .button {
+
     background: transparent;
+
     color: #b7ff5a;
+
     border: 1px solid #b7ff5a;
+
     padding: 15px 30px;
+
     font-family: monospace;
+
     font-size: 16px;
+
     cursor: pointer;
-    border-radius: 6px;
-    transition: 0.2s ease;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        transform 0.15s ease;
 }
 
 .button:hover {
+
     background: #b7ff5a;
+
     color: #080a09;
 }
 
-.button:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
+.button:active {
+
+    transform: scale(0.97);
 }
 
-/* ============================= */
-/* ACCESS / LOGIN                 */
-/* ============================= */
+
+/* ================================= */
+/* ACCESS FORM                       */
+/* ================================= */
 
 .access-box {
+
     margin-top: 30px;
 }
 
 .access-box label {
+
     display: block;
+
     width: 100%;
+
     margin-bottom: 12px;
 
     font-size: 17px;
+
     line-height: 1.4;
+
     letter-spacing: 1.5px;
 }
 
 .access-box input {
+
     display: block;
+
     width: 100%;
+
     min-height: 54px;
 
     margin: 0 auto;
@@ -122,126 +223,185 @@ h2 {
     padding: 14px 16px;
 
     font-size: 18px;
+
     text-align: center;
 
+    border-radius: 10px;
+
     background: transparent;
+
     color: #b7ff5a;
 
     border: 1px solid #555;
-    border-radius: 10px;
 
     outline: none;
+
     font-family: monospace;
 }
 
 .access-box input:focus {
+
     border-color: #b7ff5a;
 }
 
+.access-box input::placeholder {
+
+    color: #666;
+}
+
 .access-box .button {
+
     display: block;
+
     width: 100%;
 
     margin-top: 28px;
+
     margin-bottom: 35px;
 
     min-height: 56px;
 
     font-size: 17px;
+
     font-weight: bold;
 }
 
 #accessMessage,
 #codenameMessage {
+
     margin-top: 18px;
+
     font-size: 16px;
+
     line-height: 1.5;
 }
 
-/* ============================= */
-/* HQ                              */
-/* ============================= */
+
+/* ================================= */
+/* HQ STATUS                         */
+/* ================================= */
 
 .mission-status {
+
     width: 100%;
+
     margin: 25px auto;
+
     padding: 14px 18px;
 
-    border: 1px solid rgba(183, 255, 90, 0.35);
+    border: 1px solid rgba(183,255,90,0.35);
+
     border-radius: 12px;
 
-    background: rgba(183, 255, 90, 0.04);
+    background: rgba(183,255,90,0.04);
 }
 
 .status-row {
+
     display: flex;
+
     justify-content: space-between;
+
     align-items: center;
 
     padding: 9px 0;
 
     font-size: 14px;
+
     letter-spacing: 1px;
 }
 
 .status-row + .status-row {
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
+
+    border-top:
+        1px solid rgba(255,255,255,0.08);
 }
 
 .status-row span {
+
     color: #999;
 }
 
 .status-row strong {
+
     color: #b7ff5a;
 }
 
 .hq-welcome {
+
     font-size: 20px;
+
     font-weight: bold;
+
     margin-top: 25px;
 }
 
 .hq-message {
+
     color: #ccc;
 }
 
 .tease {
+
     margin-top: 20px;
+
     color: #b7ff5a;
+
     font-style: italic;
+
     line-height: 1.6;
 }
 
-/* ============================= */
-/* CASE GRID                      */
-/* ============================= */
+
+/* ================================= */
+/* CASE GRID                         */
+/* ================================= */
 
 .case-grid {
+
     display: grid;
+
     grid-template-columns: 1fr;
+
     gap: 16px;
+
     margin-top: 25px;
+
     width: 100%;
 }
 
+
+/* ================================= */
+/* CASE CARD                         */
+/* ================================= */
+
 .case-card {
+
     width: 100%;
+
     min-height: 125px;
 
     padding: 20px;
 
-    background: rgba(10, 10, 10, 0.85);
+    background:
+        rgba(10,10,10,0.85);
+
     border: 1px solid #b7ff5a;
+
     border-radius: 14px;
 
     color: white;
+
     text-align: left;
+
     cursor: pointer;
 
     display: flex;
+
     flex-direction: column;
+
     justify-content: center;
+
     gap: 7px;
 
     transition:
@@ -253,3134 +413,58 @@ h2 {
 }
 
 .case-card:hover {
-    background: rgba(183, 255, 90, 0.08);
-    box-shadow: 0 0 18px rgba(183, 255, 90, 0.15);
+
+    background:
+        rgba(183,255,90,0.08);
+
+    box-shadow:
+        0 0 18px
+        rgba(183,255,90,0.15);
 }
 
 .case-card:active {
+
     transform: scale(0.97);
 }
 
 .case-number {
+
     font-size: 12px;
+
     color: #b7ff5a;
+
     letter-spacing: 2px;
 }
 
 .case-title {
+
     font-size: 20px;
+
     font-weight: bold;
+
     line-height: 1.3;
 }
 
 .case-status {
+
     font-size: 11px;
+
     color: #999;
+
     letter-spacing: 1px;
 }
 
-/* ============================= */
-/* QUIZ                           */
-/* ============================= */
+
+/* ================================= */
+/* QUIZ                              */
+/* ================================= */
 
 .quiz-options {
+
     display: flex;
+
     flex-direction: column;
+
     gap: 12px;
-    margin-top: 25px;
-}
 
-.quiz-option {
-    background: transparent;
-    color: #b7ff5a;
-
-    border: 1px solid #555;
-
-    padding: 14px;
-
-    font-family: monospace;
-    font-size: 14px;
-
-    cursor: pointer;
-    text-align: left;
-
-    border-radius: 6px;
-}
-
-.quiz-option:hover {
-    border-color: #b7ff5a;
-    background: rgba(183, 255, 90, 0.08);
-}
-
-.quiz-option:disabled {
-    opacity: 0.45;
-    cursor: not-allowed;
-}
-
-/* ============================= */
-/* INPUTS / TEXTAREAS             */
-/* ============================= */
-
-.quiz-input {
-    width: 85%;
-    max-width: 300px;
-    box-sizing: border-box;
-
-    background: transparent;
-    color: #b7ff5a;
-
-    border: 1px solid #555;
-    padding: 12px;
-
-    font-family: monospace;
-    font-size: 14px;
-
-    outline: none;
-    text-align: center;
-}
-
-.quiz-input:focus {
-    border-color: #b7ff5a;
-}
-
-.quiz-input::placeholder {
-    color: #666;
-}
-
-.case-textarea,
-.assignment-textarea {
-    display: block;
-
-    width: 100%;
-    min-height: 220px;
-
-    margin-top: 20px;
-    padding: 16px;
-
-    background: #080a09;
-    color: #b7ff5a;
-
-    border: 1px solid #555;
-    border-radius: 10px;
-
-    font-family: monospace;
-    font-size: 16px;
-    line-height: 1.6;
-
-    resize: vertical;
-    outline: none;
-}
-
-.case-textarea:focus,
-.assignment-textarea:focus {
-    border-color: #b7ff5a;
-    box-shadow: 0 0 12px rgba(183, 255, 90, 0.12);
-}
-
-.case-textarea::placeholder,
-.assignment-textarea::placeholder {
-    color: #666;
-}
-
-/* ============================= */
-/* ASSIGNMENTS                    */
-/* ============================= */
-
-.assignment-question {
-    width: 100%;
-    margin: 35px 0;
-    text-align: left;
-}
-
-.assignment-question h2 {
-    color: #b7ff5a;
-    font-size: 17px;
-    line-height: 1.6;
-    letter-spacing: 0.5px;
-    margin-bottom: 15px;
-}
-
-/* ============================= */
-/* EVIDENCE PHOTOS                */
-/* ============================= */
-
-.bite-photo {
-    width: 82%;
-    max-width: 300px;
-    height: 210px;
-
-    object-fit: cover;
-    object-position: center;
-
-    display: block;
-    margin: 18px auto;
-
-    background: white;
-    padding: 8px;
-
-    border: none;
-
-    box-shadow: 0 5px 18px rgba(0,0,0,0.5);
-
-    transform: rotate(-2deg);
-}
-
-.bite-photo.second {
-    transform: rotate(2deg);
-}
-
-img,
-input,
-textarea,
-button {
-    max-width: 100%;
-}
-
-/* ============================= */
-/* MOBILE                        */
-/* ============================= */
-
-@media (max-width: 600px) {
-
-    h1 {
-        font-size: 27px;
-    }
-
-    h2 {
-        font-size: 19px;
-    }
-
-    .container {
-        padding-bottom: 20px;
-    }
-
-    .button {
-        width: 100%;
-    }
-}
-</style>
-</head>
-
-<body>
-
-<!-- ===================================================== -->
-<!-- ACCESS SCREEN                                         -->
-<!-- ===================================================== -->
-
-<div id="accessScreen" class="screen">
-
-    <div class="container">
-
-        <div class="top-secret">
-            TOP SECRET
-        </div>
-
-        <h1>OPERATION SPY</h1>
-
-        <div class="case">
-            CLASSIFIED ACCESS
-        </div>
-
-        <p>
-            STRAVA INTELLIGENCE NETWORK
-        </p>
-
-        <p>
-            IDENTITY VERIFICATION REQUIRED
-        </p>
-
-        <div class="access-box">
-
-            <label for="accessCode">
-                ENTER ACCESS CODE
-            </label>
-
-            <input
-                type="password"
-                id="accessCode"
-                placeholder="••••••••"
-                autocomplete="off"
-            >
-
-            <button
-                class="button"
-                onclick="verifyAccess()">
-                AUTHENTICATE
-            </button>
-
-            <p id="accessMessage"></p>
-
-        </div>
-
-    </div>
-
-</div>
-
-
-<!-- ===================================================== -->
-<!-- CODENAME SCREEN                                       -->
-<!-- ===================================================== -->
-
-<div id="codenameScreen" class="screen" style="display:none;">
-
-    <div class="container">
-
-        <div class="top-secret">
-            IDENTITY VERIFIED
-        </div>
-
-        <h1>WELCOME, AGENT</h1>
-
-        <p>
-            Before entering the Operation Spy network,
-            confirm your codename.
-        </p>
-
-        <div class="access-box">
-
-            <label for="codename">
-                ENTER CODENAME
-            </label>
-
-            <input
-                type="text"
-                id="codename"
-                placeholder="Your codename..."
-                autocomplete="off"
-            >
-
-            <button
-                class="button"
-                onclick="verifyCodename()">
-                CONFIRM IDENTITY
-            </button>
-
-            <p id="codenameMessage"></p>
-
-        </div>
-
-    </div>
-
-</div>
-
-
-<!-- ===================================================== -->
-<!-- HQ SCREEN                                             -->
-<!-- ===================================================== -->
-
-<div id="hqScreen" class="screen" style="display:none;">
-
-    <div class="container" id="hqContainer">
-
-    </div>
-
-</div>
-
-
-<script>
-
-/* ===================================================== */
-/* CONFIGURATION                                         */
-/* ===================================================== */
-
-const ACCESS_CODE = "BunnyFox";
-
-const FORMSPREE_ENDPOINT =
-    "https://formspree.io/f/moeandra";
-
-
-/* ===================================================== */
-/* CASE PROGRESS                                         */
-/* ===================================================== */
-
-let caseProgress = {
-
-    case001:
-        localStorage.getItem("case001Complete") === "true",
-
-    case002:
-        localStorage.getItem("case002Complete") === "true",
-
-    case003:
-        localStorage.getItem("case003Complete") === "true"
-
-};
-
-
-/* ===================================================== */
-/* CASE 001 STATE                                        */
-/* ===================================================== */
-
-let case001Sequence = [];
-
-let case001NextStep = 1;
-
-
-/* ===================================================== */
-/* CASE 003 STATE                                        */
-/* ===================================================== */
-
-let case003Answers = {
-
-    stage1: "",
-    stage2: "",
-    stage3: "",
-    stage4: ""
-
-};
-
-
-/* ===================================================== */
-/* GENERAL HELPERS                                       */
-/* ===================================================== */
-
-function getActiveContainer() {
-
-    const hqContainer =
-        document.getElementById("hqContainer");
-
-    return hqContainer;
-
-}
-
-
-function showScreen(screenId) {
-
-    document
-        .querySelectorAll(".screen")
-        .forEach(screen => {
-
-            screen.style.display = "none";
-
-        });
-
-    document
-        .getElementById(screenId)
-        .style.display = "flex";
-
-}
-
-
-/* ===================================================== */
-/* ACCESS                                               */
-/* ===================================================== */
-
-function verifyAccess() {
-
-    const enteredCode =
-        document
-            .getElementById("accessCode")
-            .value
-            .trim();
-
-    const message =
-        document.getElementById("accessMessage");
-
-
-    if (enteredCode === ACCESS_CODE) {
-
-        message.style.color = "#b7ff5a";
-
-        message.textContent =
-            "ACCESS GRANTED. Welcome, Agent Fox. 🦊";
-
-
-        setTimeout(() => {
-
-            showScreen("codenameScreen");
-
-        }, 900);
-
-
-    } else {
-
-        message.style.color = "#ff3b30";
-
-        message.textContent =
-            "ACCESS DENIED. Nice try, Fox. 😋";
-
-    }
-
-}
-
-
-/* ===================================================== */
-/* CODENAME                                             */
-/* ===================================================== */
-
-function verifyCodename() {
-
-    const enteredName =
-        document
-            .getElementById("codename")
-            .value
-            .trim()
-            .toUpperCase();
-
-    const message =
-        document.getElementById("codenameMessage");
-
-
-    if (enteredName === "SLY FOX") {
-
-        message.style.color = "#b7ff5a";
-
-        message.textContent =
-            "CODENAME CONFIRMED. Welcome, Sly Fox. 🦊";
-
-
-        setTimeout(() => {
-
-            showScreen("hqScreen");
-
-            showHQ();
-
-        }, 1200);
-
-
-    } else {
-
-        message.style.color = "#ff3b30";
-
-        message.textContent =
-            "IDENTITY REJECTED. Nice try, stranger. 🐰";
-
-    }
-
-}
-
-
-/* ===================================================== */
-/* HQ                                                   */
-/* ===================================================== */
-
-function showHQ() {
-
-    const completedCount =
-
-        Number(caseProgress.case001) +
-        Number(caseProgress.case002) +
-        Number(caseProgress.case003);
-
-
-    let tease;
-
-
-    if (caseProgress.case003) {
-
-        tease =
-            "All three cases solved.";
-
-    } else if (caseProgress.case002) {
-
-        tease =
-            "Two cases solved. The final investigation awaits.";
-
-    } else if (caseProgress.case001) {
-
-        tease =
-            "One case solved. Another investigation awaits.";
-
-    } else {
-
-        tease =
-            "Your first investigation awaits.";
-
-    }
-
-
-    document.getElementById("hqContainer").innerHTML = `
-
-        <div class="top-secret">
-            BUNNY EYES ONLY
-        </div>
-
-        <h1>OPERATION SPY</h1>
-
-        <div class="case">
-            AGENT: SLY FOX 🦊
-        </div>
-
-
-        <div class="mission-status">
-
-            <div class="status-row">
-
-                <span>STATUS</span>
-
-                <strong>
-                    ACTIVE
-                </strong>
-
-            </div>
-
-
-            <div class="status-row">
-
-                <span>CASE FILES</span>
-
-                <strong>
-                    ${completedCount} / 3
-                </strong>
-
-            </div>
-
-        </div>
-
-
-        <p class="hq-welcome">
-            WELCOME BACK, AGENT FOX.
-        </p>
-
-
-        <p class="hq-message">
-            Your classified case files are waiting.
-        </p>
-
-
-        <p class="tease">
-
-            ${tease}
-
-            <br>
-
-            The Bunny is watching. 😋
-
-        </p>
-
-
-        <br>
-
-
-        <h2>
-            CLASSIFIED CASE FILES
-        </h2>
-
-
-        <div class="case-grid">
-
-
-            <!-- CASE 001 -->
-
-            <button
-                class="case-card"
-                onclick="openCase(1)">
-
-                <span class="case-number">
-                    CASE 001
-                </span>
-
-                <span class="case-title">
-                    🩹 THE BANDAGE INCIDENT
-                </span>
-
-                <span class="case-status">
-
-                    ${
-                        caseProgress.case001
-                            ? "✓ CASE COMPLETED"
-                            : "FILE AVAILABLE"
-                    }
-
-                </span>
-
-            </button>
-
-
-            <!-- CASE 002 -->
-
-            <button
-                class="case-card"
-                onclick="openCase(2)">
-
-                <span class="case-number">
-                    CASE 002
-                </span>
-
-                <span class="case-title">
-                    🦷 THE BITE INCIDENTS
-                </span>
-
-                <span class="case-status">
-
-                    ${
-                        caseProgress.case002
-
-                            ? "✓ CASE COMPLETED"
-
-                            : caseProgress.case001
-
-                                ? "FILE AVAILABLE"
-
-                                : "🔒 LOCKED — COMPLETE CASE 001"
-                    }
-
-                </span>
-
-            </button>
-
-
-            <!-- CASE 003 -->
-
-            <button
-                class="case-card"
-                onclick="openCase(3)">
-
-                <span class="case-number">
-                    CASE 003
-                </span>
-
-                <span class="case-title">
-                    🦊 THE DECISION
-                </span>
-
-                <span class="case-status">
-
-                    ${
-                        caseProgress.case003
-
-                            ? "✓ CASE COMPLETED"
-
-                            : caseProgress.case002
-
-                                ? "FILE AVAILABLE"
-
-                                : "🔒 LOCKED — COMPLETE CASE 002"
-                    }
-
-                </span>
-
-            </button>
-
-
-        </div>
-
-    `;
-}
-
-
-/* ===================================================== */
-/* OPEN CASE                                             */
-/* ===================================================== */
-
-function openCase(caseNumber) {
-
-    if (caseNumber === 1) {
-
-        if (caseProgress.case001) {
-
-            showCase001Completed();
-
-        } else {
-
-            showCase001MemoryCheck();
-
-        }
-
-        return;
-    }
-
-
-    if (caseNumber === 2) {
-
-        if (caseProgress.case001) {
-
-            if (caseProgress.case002) {
-
-                showCase002Completed();
-
-            } else {
-
-                nextCase();
-
-            }
-
-        } else {
-
-            showLockedCase(2);
-
-        }
-
-        return;
-    }
-
-
-    if (caseNumber === 3) {
-
-        if (caseProgress.case003) {
-
-            showCase003Completed();
-
-        } else if (caseProgress.case002) {
-
-            startCase003();
-
-        } else {
-
-            showLockedCase(3);
-
-        }
-
-    }
-
-}
-
-
-/* ===================================================== */
-/* LOCKED CASE                                          */
-/* ===================================================== */
-
-function showLockedCase(caseNumber) {
-
-    const titles = {
-
-        2: "THE BITE INCIDENTS",
-
-        3: "THE DECISION"
-
-    };
-
-
-    getActiveContainer().innerHTML = `
-
-        <div class="top-secret">
-            ACCESS DENIED
-        </div>
-
-        <h1>🔒</h1>
-
-        <div class="case">
-            CASE ${String(caseNumber).padStart(3, "0")}
-        </div>
-
-        <h2>
-            ${titles[caseNumber]}
-        </h2>
-
-        <p style="color:#ff3b30;">
-            CLASSIFIED FILE LOCKED.
-        </p>
-
-        <br>
-
-        <p>
-            Nice try, Fox. 😋
-        </p>
-
-        <p>
-            You don't get to skip your homework.
-        </p>
-
-        <p style="color:#b7ff5a;">
-            Complete the previous investigation first.
-        </p>
-
-        <br>
-
-        <button
-            class="button"
-            onclick="returnToHQ()">
-
-            RETURN TO HQ
-
-        </button>
-
-    `;
-
-}
-
-
-/* ===================================================== */
-/* CASE 001 — MEMORY CHECK                              */
-/* ===================================================== */
-
-function showCase001MemoryCheck() {
-
-    getActiveContainer().innerHTML = `
-
-        <div class="top-secret">
-            CASE 001 — ACCESS RESTRICTED
-        </div>
-
-        <div class="case">
-            MEMORY VERIFICATION REQUIRED
-        </div>
-
-        <h1>🩹</h1>
-
-        <h2>
-            PROVE YOU REMEMBER, FOX.
-        </h2>
-
-        <p>
-            Before this classified file can be opened,
-            you must identify the date connected to
-            the incident.
-        </p>
-
-        <br>
-
-        <p style="color:#ffcc66;">
-            MEMORY VERIFICATION
-        </p>
-
-        <p>
-            <strong>
-                What was the date of our first date? ❤️
-            </strong>
-        </p>
-
-        <p style="color:#777;">
-            Enter the date in any reasonable format.
-        </p>
-
-        <input
-            type="text"
-            id="memoryAnswer"
-            class="quiz-input"
-            placeholder="Enter Date"
-            autocomplete="off"
-        >
-
-        <br><br>
-
-        <button
-            class="button"
-            onclick="verifyCase001Memory()">
-
-            VERIFY MEMORY
-
-        </button>
-
-        <p id="memoryMessage"></p>
-
-        <br>
-
-        <button
-            class="button"
-            onclick="returnToHQ()">
-
-            RETURN TO HQ
-
-        </button>
-
-    `;
-
-}
-
-
-/* ===================================================== */
-/* CASE 001 — MEMORY VERIFY                             */
-/* ===================================================== */
-
-function verifyCase001Memory() {
-
-    const answer =
-        document
-            .getElementById("memoryAnswer")
-            .value
-            .trim()
-            .toLowerCase();
-
-
-    const message =
-        document.getElementById("memoryMessage");
-
-
-    const correctAnswers = [
-
-        "3rd august 2025",
-        "3 august 2025",
-        "3rd august, 2025",
-        "3 august, 2025",
-        "03 august 2025",
-        "03/08/2025",
-        "3/8/2025",
-        "03-08-2025",
-        "3-8-2025"
-
-    ];
-
-
-    if (correctAnswers.includes(answer)) {
-
-        message.innerHTML = `
-
-            <span style="color:#b7ff5a;">
-                ✓ MEMORY VERIFIED.
-            </span>
-
-            <br><br>
-
-            03 AUGUST 2025
-
-            <br><br>
-
-            Date confirmed.
-
-            <br><br>
-
-            And yes, Fox...
-
-            <br>
-
-            that was the day of the
-            Bandage Incident. 🩹
-
-            <br><br>
-
-            <span style="color:#ff9ecb;">
-                The Bunny is impressed. 😌
-            </span>
-
-        `;
-
-
-        const enterButton =
-            document.createElement("button");
-
-
-        enterButton.className =
-            "button";
-
-        enterButton.textContent =
-            "ENTER CASE 001";
-
-
-        enterButton.onclick =
-            openCaseFile;
-
-
-        message.insertAdjacentElement(
-            "afterend",
-            enterButton
-        );
-
-
-        document
-            .getElementById("memoryAnswer")
-            .disabled = true;
-
-
-    } else {
-
-        message.innerHTML = `
-
-            <span style="color:#ff3b30;">
-                ✗ MEMORY VERIFICATION FAILED. 🚨
-            </span>
-
-            <br><br>
-
-            Seriously, Fox? 😭
-
-            <br>
-
-            The Bunny remembers this date.
-
-            <br><br>
-
-            You have one job.
-            Try again. 😋
-
-        `;
-
-    }
-
-}
-
-
-/* ===================================================== */
-/* CASE 001 — FILE                                      */
-/* ===================================================== */
-
-function openCaseFile() {
-
-    getActiveContainer().innerHTML = `
-
-        <div class="top-secret">
-            CLASSIFIED FILE 001
-        </div>
-
-        <div class="case">
-            THE BANDAGE INCIDENT
-        </div>
-
-        <h1>🩹</h1>
-
-        <p style="color:#ffcc66;">
-            CASE STATUS: ACTIVE
-        </p>
-
-        <p>
-            The memory verification has been passed.
-        </p>
-
-        <p>
-            The Bunny has authorized you to examine
-            the final piece of evidence.
-        </p>
-
-        <br>
-
-        <p style="color:#b7ff5a;">
-            EVIDENCE #004
-        </p>
-
-        <h2>
-            WITNESS OBSERVATION
-        </h2>
-
-        <p>
-            The Bunny was injured.
-        </p>
-
-        <p>
-            The Fox noticed the injury
-            and helped her.
-        </p>
-
-        <p>
-            But investigators noticed something unusual.
-        </p>
-
-        <p style="color:#ff9ecb;">
-            The Bunny wasn't paying much attention
-            to her injured foot.
-        </p>
-
-        <p>
-            She was watching the Fox instead. 😋
-        </p>
-
-        <br>
-
-        <button
-            class="button"
-            onclick="startCase001Reconstruction()">
-
-            EXAMINE EVIDENCE
-
-        </button>
-
-    `;
-
-}
-
-
-/* ===================================================== */
-/* CASE 001 — TIMELINE                                  */
-/* ===================================================== */
-
-function startCase001Reconstruction() {
-
-    case001Sequence = [];
-    case001NextStep = 1;
-
-
-    getActiveContainer().innerHTML = `
-
-        <div class="top-secret">
-            CASE 001 — ACTIVE INVESTIGATION
-        </div>
-
-        <div class="case">
-            INCIDENT RECONSTRUCTION
-        </div>
-
-        <h1>🧩</h1>
-
-        <h2>
-            RECONSTRUCT THE INCIDENT
-        </h2>
-
-        <p>
-            Agent Fox, the evidence has been reviewed.
-        </p>
-
-        <p>
-            Now determine the correct sequence
-            of events.
-        </p>
-
-        <p style="color:#ffcc66;">
-            Select the events in the correct order.
-        </p>
-
-        <div class="quiz-options">
-
-            <button
-                class="quiz-option"
-                data-event="1"
-                onclick="selectTimelineEvent(1)">
-
-                THE FOX HELPED THE BUNNY
-
-            </button>
-
-            <button
-                class="quiz-option"
-                data-event="2"
-                onclick="selectTimelineEvent(2)">
-
-                THE BUNNY WAS INJURED
-
-            </button>
-
-            <button
-                class="quiz-option"
-                data-event="3"
-                onclick="selectTimelineEvent(3)">
-
-                THE FOX NOTICED THE INJURY
-
-            </button>
-
-            <button
-                class="quiz-option"
-                data-event="4"
-                onclick="selectTimelineEvent(4)">
-
-                THE BUNNY WATCHED THE FOX 😋
-
-            </button>
-
-        </div>
-
-        <p id="timelineMessage"></p>
-
-        <div id="timelineProgress"></div>
-
-        <br>
-
-        <button
-            class="button"
-            onclick="returnToHQ()">
-
-            RETURN TO HQ
-
-        </button>
-
-    `;
-
-}
-
-
-/* ===================================================== */
-/* TIMELINE SELECTION                                   */
-/* ===================================================== */
-
-function selectTimelineEvent(eventNumber) {
-
-    const message =
-        document.getElementById("timelineMessage");
-
-
-    const progress =
-        document.getElementById("timelineProgress");
-
-
-    const correctSequence =
-        [2, 3, 1, 4];
-
-
-    if (
-        eventNumber ===
-        correctSequence[case001NextStep - 1]
-    ) {
-
-        case001Sequence.push(eventNumber);
-
-        case001NextStep++;
-
-
-        message.innerHTML = `
-
-            <span style="color:#b7ff5a;">
-                ✓ CORRECT. Evidence accepted.
-            </span>
-
-        `;
-
-
-        progress.innerHTML = `
-
-            <p style="color:#b7ff5a;">
-
-                TIMELINE PROGRESS:
-                ${case001Sequence.length} / 4
-
-            </p>
-
-        `;
-
-
-        const button =
-            document.querySelector(
-                `.quiz-option[data-event="${eventNumber}"]`
-            );
-
-
-        if (button) {
-
-            button.disabled = true;
-
-        }
-
-
-        if (case001NextStep > 4) {
-
-            setTimeout(() => {
-
-                showCase001Theory();
-
-            }, 900);
-
-        }
-
-
-    } else {
-
-        message.innerHTML = `
-
-            <span style="color:#ff3b30;">
-                ✗ INCORRECT SEQUENCE.
-            </span>
-
-            <br><br>
-
-            Think carefully, Fox.
-            The Bunny knows what happened. 😋
-
-        `;
-
-    }
-
-}
-
-
-/* ===================================================== */
-/* CASE 001 — THEORY                                    */
-/* ===================================================== */
-
-function showCase001Theory() {
-
-    getActiveContainer().innerHTML = `
-
-        <div class="top-secret">
-            CASE 001 — FINAL INVESTIGATION
-        </div>
-
-        <div class="case">
-            AGENT FOX — SUBMIT YOUR THEORY
-        </div>
-
-        <h1>✍️</h1>
-
-        <p style="color:#b7ff5a;">
-            INCIDENT RECONSTRUCTION COMPLETE ✓
-        </p>
-
-        <p>
-            The timeline has been successfully
-            reconstructed.
-        </p>
-
-        <p>
-            However, one question remains.
-        </p>
-
-        <br>
-
-        <p style="color:#ffcc66;">
-            FINAL INVESTIGATION QUESTION
-        </p>
-
-        <h2>
-            Why do you think the Bunny was watching
-            the Fox instead of her injured foot? 😋
-        </h2>
-
-        <p>
-            There is no predetermined answer.
-        </p>
-
-        <p>
-            Explain your theory to Bunny HQ.
-        </p>
-
-        <textarea
-            id="case001Theory"
-            class="case-textarea"
-            placeholder="Write your theory here..."
-        ></textarea>
-
-        <br>
-
-        <button
-            class="button"
-            onclick="submitCase001Theory()">
-
-            SUBMIT THEORY TO BUNNY HQ
-
-        </button>
-
-        <p id="case001SubmitMessage"></p>
-
-    `;
-
-}
-
-
-/* ===================================================== */
-/* CASE 001 — SUBMIT THEORY                             */
-/* ===================================================== */
-
-async function submitCase001Theory() {
-
-    const theoryBox =
-        document.getElementById("case001Theory");
-
-
-    const message =
-        document.getElementById("case001SubmitMessage");
-
-
-    const theory =
-        theoryBox.value.trim();
-
-
-    if (!theory) {
-
-        message.innerHTML = `
-
-            <span style="color:#ff3b30;">
-                THEORY REQUIRED, FOX. 🦊
-            </span>
-
-        `;
-
-        return;
-
-    }
-
-
-    /*
-        IMPORTANT:
-        First message shown to the user.
-    */
-
-    message.innerHTML = `
-
-        <span style="color:#b7ff5a;">
-            TRANSMITTING TO BUNNY HQ...
-        </span>
-
-    `;
-
-
-    try {
-
-        const response =
-            await fetch(
-                FORMSPREE_ENDPOINT,
-                {
-
-                    method: "POST",
-
-                    headers: {
-
-                        "Content-Type":
-                            "application/json",
-
-                        "Accept":
-                            "application/json"
-
-                    },
-
-                    body: JSON.stringify({
-
-                        codename:
-                            "SLY FOX",
-
-                        case:
-                            "CASE 001 — THE BANDAGE INCIDENT",
-
-                        theory:
-                            theory,
-
-                        status:
-                            "CASE 001 INVESTIGATION COMPLETED"
-
-                    })
-
-                }
-            );
-
-
-        if (response.ok) {
-
-            /*
-                SUCCESS MESSAGE
-            */
-
-            message.innerHTML = `
-
-                <span style="color:#b7ff5a;">
-
-                    ✓ THEORY RECEIVED BY BUNNY HQ.
-
-                </span>
-
-            `;
-
-
-            caseProgress.case001 = true;
-
-            localStorage.setItem(
-                "case001Complete",
-                "true"
-            );
-
-
-            theoryBox.disabled = true;
-
-
-            setTimeout(() => {
-
-                showCase001Complete();
-
-            }, 1500);
-
-
-        } else {
-
-            message.innerHTML = `
-
-                <span style="color:#ff3b30;">
-                    TRANSMISSION FAILED.
-                </span>
-
-                <br><br>
-
-                Please try again, Fox.
-
-            `;
-
-        }
-
-    } catch (error) {
-
-        message.innerHTML = `
-
-            <span style="color:#ff3b30;">
-                CONNECTION TO BUNNY HQ FAILED.
-            </span>
-
-            <br><br>
-
-            Please try again.
-
-        `;
-
-    }
-
-}
-
-
-/* ===================================================== */
-/* CASE 001 — COMPLETE                                  */
-/* ===================================================== */
-
-function showCase001Complete() {
-
-    getActiveContainer().innerHTML = `
-
-        <div class="top-secret">
-            BUNNY HQ — CASE REPORT
-        </div>
-
-        <h1>
-            CASE CLOSED
-        </h1>
-
-        <div class="case">
-            CASE 001 — THE BANDAGE INCIDENT
-        </div>
-
-        <h2 style="color:#b7ff5a;">
-            ✓ INVESTIGATION COMPLETE
-        </h2>
-
-        <p>
-            Evidence examined: ✓
-        </p>
-
-        <p>
-            Timeline reconstructed: ✓
-        </p>
-
-        <p>
-            Agent theory received: ✓
-        </p>
-
-        <br>
-
-        <p style="color:#ff9ecb;">
-            The Bunny has received your report.
-            🐰❤️
-        </p>
-
-        <p>
-            She is currently reviewing your theory.
-        </p>
-
-        <br>
-
-        <p style="color:#ffcc66;">
-            CASE 001 — SOLVED
-        </p>
-
-        <p>
-            Your performance has been recorded.
-        </p>
-
-        <br>
-
-        <p style="color:#b7ff5a;">
-            🔓 NEW CLASSIFIED FILE DETECTED
-        </p>
-
-        <h2>
-            CASE 002
-        </h2>
-
-        <p>
-            THE BITE INCIDENTS
-        </p>
-
-        <br>
-
-        <button
-            class="button"
-            onclick="returnToHQ()">
-
-            RETURN TO HQ
-
-        </button>
-
-    `;
-
-}
-
-
-/* ===================================================== */
-/* CASE 001 — ALREADY COMPLETED                         */
-/* ===================================================== */
-
-function showCase001Completed() {
-
-    getActiveContainer().innerHTML = `
-
-        <div class="top-secret">
-            CASE FILE 001
-        </div>
-
-        <h1>🩹</h1>
-
-        <div class="case">
-            THE BANDAGE INCIDENT
-        </div>
-
-        <h2 style="color:#b7ff5a;">
-            ✓ CASE COMPLETED
-        </h2>
-
-        <p>
-            You have already solved this investigation.
-        </p>
-
-        <p>
-            Bunny HQ has your report.
-        </p>
-
-        <p style="color:#ff9ecb;">
-            No need to investigate the same crime twice. 😋
-        </p>
-
-        <br>
-
-        <button
-            class="button"
-            onclick="replayCase001()">
-
-            🔄 REINVESTIGATE CASE
-
-        </button>
-
-        <br><br>
-
-        <button
-            class="button"
-            onclick="returnToHQ()">
-
-            🏠 RETURN TO HQ
-
-        </button>
-
-    `;
-
-}
-
-
-function replayCase001() {
-
-    showCase001MemoryCheck();
-
-}
-
-
-/* ===================================================== */
-/* CASE 002 — EVIDENCE                                  */
-/* ===================================================== */
-
-function nextCase() {
-
-    getActiveContainer().innerHTML = `
-
-        <div class="top-secret">
-            CLASSIFIED FILE 002
-        </div>
-
-        <h1>
-            THE BITE INCIDENTS
-        </h1>
-
-        <div class="case">
-            INVESTIGATION REPORT
-        </div>
-
-        <p>
-            The investigator has discovered
-            evidence of repeated attacks
-            on the subject.
-        </p>
-
-        <br>
-
-        <p style="color:#b7ff5a;">
-            EVIDENCE #002-A
-        </p>
-
-        <p>
-            <strong>
-                THE HAND INCIDENT
-            </strong>
-        </p>
-
-        <img
-            src="images/hand1.jpg"
-            alt="Evidence photograph"
-            class="bite-photo"
-        >
-
-        <br>
-
-        <p style="color:#b7ff5a;">
-            EVIDENCE #002-B
-        </p>
-
-        <p>
-            <strong>
-                THE FIRST BITE
-            </strong>
-        </p>
-
-        <img
-            src="images/first bite.jpg"
-            alt="Evidence photograph"
-            class="bite-photo second"
-        >
-
-        <p>
-            Evidence strongly suggests that
-            the Bunny was enjoying herself. 😋
-        </p>
-
-        <br>
-
-        <p style="color:#ff3b30;">
-            CASE ASSESSMENT
-        </p>
-
-        <p>
-            Documented attacks: 2<br>
-            Undocumented attacks: CLASSIFIED<br>
-            Subject's patience: DECLINING<br>
-            Bunny's remorse: 0%
-        </p>
-
-        <p style="color:#ff3b30;">
-            MOTIVE:
-        </p>
-
-        <p>
-            Subject was deemed excessively cute.
-        </p>
-
-        <p style="color:#ff3b30;">
-            VERDICT:
-        </p>
-
-        <p>
-            Bunny is guilty.<br>
-            Bunny does not regret it. 😋
-        </p>
-
-        <br>
-
-        <button
-            class="button"
-            onclick="completeCase002()">
-
-            COMPLETE CASE 002
-
-        </button>
-
-        <br><br>
-
-        <button
-            class="button"
-            onclick="returnToHQ()">
-
-            RETURN TO HQ
-
-        </button>
-
-    `;
-
-}
-
-
-/* ===================================================== */
-/* CASE 002 — ASSIGNMENT                               */
-/* ===================================================== */
-
-function completeCase002() {
-
-    getActiveContainer().innerHTML = `
-
-        <div class="top-secret">
-            CLASSIFIED ASSIGNMENT
-        </div>
-
-        <div class="case">
-            CASE 002 — AGENT FOX ASSIGNMENT
-        </div>
-
-        <h1>🦷</h1>
-
-        <p style="color:#ff3b30;">
-            THREE QUESTIONS. THREE ANSWERS.
-        </p>
-
-        <p>
-            The evidence has been reviewed.
-            Bunny HQ now requires your personal
-            assessment of the incidents.
-        </p>
-
-        <p style="color:#ff9ecb;">
-            Answer honestly, Fox.
-            The Bunny will be reading this. 😋
-        </p>
-
-
-        <div class="assignment-question">
-
-            <h2>
-                01. WHY DOES THE BUNNY BITE YOU?
-            </h2>
-
-            <textarea
-                id="case002Answer1"
-                class="assignment-textarea"
-                placeholder="Write your theory..."
-            ></textarea>
-
-        </div>
-
-
-        <div class="assignment-question">
-
-            <h2>
-                02. BE HONEST, FOX...
-                DO YOU ACTUALLY LIKE IT? 😋
-            </h2>
-
-            <textarea
-                id="case002Answer2"
-                class="assignment-textarea"
-                placeholder="No escaping this one. Tell Bunny the truth..."
-            ></textarea>
-
-        </div>
-
-
-        <div class="assignment-question">
-
-            <h2>
-                03. ANYTHING YOU'D LIKE TO SAY
-                TO THE BUNNY REGARDING THESE
-                REPEATED ATTACKS?
-            </h2>
-
-            <textarea
-                id="case002Answer3"
-                class="assignment-textarea"
-                placeholder="Your final statement to the Bunny..."
-            ></textarea>
-
-        </div>
-
-
-        <p style="color:#b7ff5a;">
-            ALL THREE RESPONSES ARE REQUIRED.
-        </p>
-
-
-        <button
-            class="button"
-            onclick="submitCase002Assignment()">
-
-            SUBMIT ASSIGNMENT TO BUNNY HQ
-
-        </button>
-
-
-        <p id="case002SubmitMessage"></p>
-
-    `;
-
-}
-
-
-/* ===================================================== */
-/* CASE 002 — SUBMIT                                   */
-/* ===================================================== */
-
-async function submitCase002Assignment() {
-
-    const answer1 =
-        document
-            .getElementById("case002Answer1")
-            .value
-            .trim();
-
-
-    const answer2 =
-        document
-            .getElementById("case002Answer2")
-            .value
-            .trim();
-
-
-    const answer3 =
-        document
-            .getElementById("case002Answer3")
-            .value
-            .trim();
-
-
-    const message =
-        document.getElementById(
-            "case002SubmitMessage"
-        );
-
-
-    if (!answer1 || !answer2 || !answer3) {
-
-        message.innerHTML = `
-
-            <span style="color:#ff3b30;">
-
-                ❌ INCOMPLETE REPORT.
-
-                <br><br>
-
-                Bunny HQ requires all three answers, Fox. 😋
-
-            </span>
-
-        `;
-
-        return;
-
-    }
-
-
-    /*
-        TRANSMITTING MESSAGE
-    */
-
-    message.innerHTML = `
-
-        <span style="color:#b7ff5a;">
-            TRANSMITTING TO BUNNY HQ...
-        </span>
-
-    `;
-
-
-    try {
-
-        const response =
-            await fetch(
-                FORMSPREE_ENDPOINT,
-                {
-
-                    method: "POST",
-
-                    headers: {
-
-                        "Content-Type":
-                            "application/json",
-
-                        "Accept":
-                            "application/json"
-
-                    },
-
-                    body: JSON.stringify({
-
-                        case:
-                            "CASE 002 — THE BITE INCIDENTS",
-
-                        codename:
-                            "SLY FOX",
-
-                        question1:
-                            "Why does the Bunny bite you?",
-
-                        answer1:
-                            answer1,
-
-                        question2:
-                            "Be honest, Fox... do you actually like it?",
-
-                        answer2:
-                            answer2,
-
-                        question3:
-                            "Anything you'd like to say to the Bunny regarding these repeated attacks?",
-
-                        answer3:
-                            answer3
-
-                    })
-
-                }
-            );
-
-
-        if (response.ok) {
-
-            message.innerHTML = `
-
-                <span style="color:#b7ff5a;">
-
-                    ✓ THEORY RECEIVED BY BUNNY HQ.
-
-                </span>
-
-            `;
-
-
-            caseProgress.case002 = true;
-
-
-            localStorage.setItem(
-                "case002Complete",
-                "true"
-            );
-
-
-            setTimeout(() => {
-
-                showCase002Complete();
-
-            }, 1500);
-
-
-        } else {
-
-            message.innerHTML = `
-
-                <span style="color:#ff3b30;">
-                    TRANSMISSION FAILED.
-                </span>
-
-                <br><br>
-
-                Please try again, Fox.
-
-            `;
-
-        }
-
-    } catch (error) {
-
-        message.innerHTML = `
-
-            <span style="color:#ff3b30;">
-                CONNECTION TO BUNNY HQ FAILED.
-            </span>
-
-            <br><br>
-
-            Please try again.
-
-        `;
-
-    }
-
-}
-
-
-/* ===================================================== */
-/* CASE 002 — COMPLETE                                  */
-/* ===================================================== */
-
-function showCase002Complete() {
-
-    getActiveContainer().innerHTML = `
-
-        <div class="top-secret">
-            INVESTIGATION COMPLETE
-        </div>
-
-        <h1>🦷</h1>
-
-        <div class="case">
-            CASE 002 — THE BITE INCIDENTS
-        </div>
-
-        <h2 style="color:#b7ff5a;">
-            ✓ CASE CLOSED
-        </h2>
-
-        <p>
-            Agent Fox has submitted his complete
-            assessment.
-        </p>
-
-        <p>
-            All responses have been archived
-            by Bunny HQ.
-        </p>
-
-        <br>
-
-        <p style="color:#b7ff5a;">
-            CASE 003 IS NOW UNLOCKED. 🔓
-        </p>
-
-        <p style="color:#ff9ecb;">
-            The Bunny will be reviewing your
-            answers very carefully. 😋
-        </p>
-
-        <br>
-
-        <button
-            class="button"
-            onclick="returnToHQ()">
-
-            🏠 RETURN TO HQ
-
-        </button>
-
-    `;
-
-}
-
-
-/* ===================================================== */
-/* CASE 002 — ALREADY COMPLETE                          */
-/* ===================================================== */
-
-function showCase002Completed() {
-
-    getActiveContainer().innerHTML = `
-
-        <div class="top-secret">
-            CASE FILE 002
-        </div>
-
-        <h1>🦷</h1>
-
-        <div class="case">
-            THE BITE INCIDENTS
-        </div>
-
-        <h2 style="color:#b7ff5a;">
-            ✓ CASE COMPLETED
-        </h2>
-
-        <p>
-            You have already completed
-            this investigation.
-        </p>
-
-        <p>
-            Bunny HQ has your answers.
-        </p>
-
-        <p style="color:#ff9ecb;">
-            But perhaps Fox needs another look
-            at the evidence. 😋
-        </p>
-
-        <br>
-
-        <button
-            class="button"
-            onclick="replayCase002()">
-
-            🔄 REINVESTIGATE CASE
-
-        </button>
-
-        <br><br>
-
-        <button
-            class="button"
-            onclick="returnToHQ()">
-
-            🏠 RETURN TO HQ
-
-        </button>
-
-    `;
-
-}
-
-
-function replayCase002() {
-
-    nextCase();
-
-}
-
-
-/* ===================================================== */
-/* CASE 003 — START                                    */
-/* ===================================================== */
-
-function startCase003() {
-
-    case003Answers = {
-
-        stage1: "",
-        stage2: "",
-        stage3: "",
-        stage4: ""
-
-    };
-
-
-    getActiveContainer().innerHTML = `
-
-        <div class="top-secret">
-            CLASSIFIED FILE 003
-        </div>
-
-        <div class="case">
-            CASE 003 — THE DECISION
-        </div>
-
-        <h1>🦊</h1>
-
-        <p style="color:#ffcc66;">
-            BUNNY HQ — DECISION ANALYSIS
-        </p>
-
-        <p>
-            Agent Fox, this case is different
-            from the previous investigations.
-        </p>
-
-        <p>
-            There is no puzzle to solve.
-            There is no predetermined answer.
-        </p>
-
-        <p style="color:#b7ff5a;">
-            This time, Bunny HQ wants you
-            to understand the situation.
-        </p>
-
-        <br>
-
-        <p style="color:#ff9ecb;">
-            Read each stage carefully.
-        </p>
-
-        <button
-            class="button"
-            onclick="case003Stage1()">
-
-            BEGIN INVESTIGATION
-
-        </button>
-
-        <br><br>
-
-        <button
-            class="button"
-            onclick="returnToHQ()">
-
-            🏠 RETURN TO HQ
-
-        </button>
-
-    `;
-
-}
-
-
-/* ===================================================== */
-/* CASE 003 — STAGE 1                                  */
-/* ===================================================== */
-
-function case003Stage1() {
-
-    getActiveContainer().innerHTML = `
-
-        <div class="top-secret">
-            CASE 003 — STAGE 01
-        </div>
-
-        <div class="case">
-            RECONSTRUCT THE DAY
-        </div>
-
-        <h1>📁</h1>
-
-        <p style="color:#b7ff5a;">
-            INCIDENT REPORT
-        </p>
-
-        <p style="text-align:left; line-height:1.8;">
-
-            • It was the Fox's admission day.
-            <br><br>
-
-            • He wanted someone to accompany him.
-            <br><br>
-
-            • The person who accompanied him
-              had a past connection with him.
-            <br><br>
-
-            • The Bunny knew about that history.
-            <br><br>
-
-            • The Bunny had already told the Fox
-              that she was uncomfortable with the situation.
-            <br><br>
-
-            • The Fox knew that the situation
-              was upsetting to the Bunny.
-            <br><br>
-
-            • Despite knowing this,
-              he still chose to take her.
-
-        </p>
-
-        <br>
-
-        <p style="color:#ffcc66;">
-            INVESTIGATION QUESTION
-        </p>
-
-        <h2>
-            At which point do you think
-            the Bunny's feelings became reasonable?
-        </h2>
-
-        <div class="quiz-options">
-
-            <button
-                class="quiz-option"
-                onclick="submitCase003Stage1('A')">
-
-                A. When she first heard about the plan.
-
-            </button>
-
-            <button
-                class="quiz-option"
-                onclick="submitCase003Stage1('B')">
-
-                B. When she remembered the past connection.
-
-            </button>
-
-            <button
-                class="quiz-option"
-                onclick="submitCase003Stage1('C')">
-
-                C. When she told the Fox she was uncomfortable.
-
-            </button>
-
-            <button
-                class="quiz-option"
-                onclick="submitCase003Stage1('D')">
-
-                D. When the Fox knew she was hurt
-                but made the decision anyway.
-
-            </button>
-
-            <button
-                class="quiz-option"
-                onclick="submitCase003Stage1('E')">
-
-                E. I don't think her feelings
-                were unreasonable at any point.
-
-            </button>
-
-        </div>
-
-        <p id="case003Stage1Message"></p>
-
-    `;
-
-}
-
-
-function submitCase003Stage1(answer) {
-
-    case003Answers.stage1 = answer;
-
-
-    const message =
-        document.getElementById(
-            "case003Stage1Message"
-        );
-
-
-    message.innerHTML = `
-
-        <span style="color:#b7ff5a;">
-            RESPONSE RECORDED ✓
-        </span>
-
-        <br><br>
-
-        Bunny HQ has recorded your perspective.
-
-    `;
-
-
-    setTimeout(() => {
-
-        case003Stage2();
-
-    }, 1200);
-
-}
-
-
-/* ===================================================== */
-/* CASE 003 — STAGE 2                                  */
-/* ===================================================== */
-
-function case003Stage2() {
-
-    getActiveContainer().innerHTML = `
-
-        <div class="top-secret">
-            CASE 003 — STAGE 02
-        </div>
-
-        <div class="case">
-            ROLE REVERSAL
-        </div>
-
-        <h1>🔄</h1>
-
-        <p>
-            Now forget that you are the Fox.
-        </p>
-
-        <p style="color:#ffcc66;">
-            Imagine the situation was reversed.
-        </p>
-
-        <br>
-
-        <p style="line-height:1.8;">
-            Tomorrow is an important day for the Bunny.
-        </p>
-
-        <p style="line-height:1.8;">
-            She knows there is someone from
-            her past who makes you uncomfortable.
-        </p>
-
-        <p style="line-height:1.8;">
-            You tell her how you feel.
-        </p>
-
-        <p style="line-height:1.8;">
-            She understands why you're uncomfortable.
-        </p>
-
-        <p style="line-height:1.8;">
-            And then she chooses to spend
-            that important day with him anyway.
-        </p>
-
-        <br>
-
-        <h2 style="color:#ff9ecb;">
-            How would you feel?
-        </h2>
-
-        <textarea
-            id="case003Stage2Answer"
-            class="assignment-textarea"
-            placeholder="Don't give the answer you think Bunny wants. Write what you would genuinely feel..."
-        ></textarea>
-
-        <br>
-
-        <button
-            class="button"
-            onclick="submitCase003Stage2()">
-
-            SUBMIT RESPONSE
-
-        </button>
-
-        <p id="case003Stage2Message"></p>
-
-    `;
-
-}
-
-
-function submitCase003Stage2() {
-
-    const answer =
-        document
-            .getElementById("case003Stage2Answer")
-            .value
-            .trim();
-
-
-    const message =
-        document.getElementById(
-            "case003Stage2Message"
-        );
-
-
-    if (!answer) {
-
-        message.innerHTML = `
-
-            <span style="color:#ff3b30;">
-                RESPONSE REQUIRED, FOX. 🦊
-            </span>
-
-        `;
-
-        return;
-
-    }
-
-
-    case003Answers.stage2 = answer;
-
-
-    message.innerHTML = `
-
-        <span style="color:#b7ff5a;">
-            RESPONSE RECORDED ✓
-        </span>
-
-    `;
-
-
-    setTimeout(() => {
-
-        case003Stage3();
-
-    }, 1000);
-
-}
-
-
-/* ===================================================== */
-/* CASE 003 — STAGE 3                                  */
-/* ===================================================== */
-
-function case003Stage3() {
-
-    getActiveContainer().innerHTML = `
-
-        <div class="top-secret">
-            CASE 003 — STAGE 03
-        </div>
-
-        <div class="case">
-            INTENT VS. IMPACT
-        </div>
-
-        <h1>⚖️</h1>
-
-        <p>
-            Bunny HQ does not want to investigate
-            what you intended.
-        </p>
-
-        <p style="color:#ffcc66;">
-            Intentions are not the question.
-        </p>
-
-        <br>
-
-        <h2>
-            What do you think your decision
-            communicated to the Bunny?
-        </h2>
-
-        <p style="color:#999;">
-            Think carefully before answering.
-        </p>
-
-        <textarea
-            id="case003Stage3Answer"
-            class="assignment-textarea"
-            placeholder="What do you think your decision communicated to her?"
-        ></textarea>
-
-        <br>
-
-        <button
-            class="button"
-            onclick="submitCase003Stage3()">
-
-            SUBMIT RESPONSE
-
-        </button>
-
-        <p id="case003Stage3Message"></p>
-
-    `;
-
-}
-
-
-function submitCase003Stage3() {
-
-    const answer =
-        document
-            .getElementById("case003Stage3Answer")
-            .value
-            .trim();
-
-
-    const message =
-        document.getElementById(
-            "case003Stage3Message"
-        );
-
-
-    if (!answer) {
-
-        message.innerHTML = `
-
-            <span style="color:#ff3b30;">
-                BUNNY HQ REQUIRES AN ANSWER.
-            </span>
-
-        `;
-
-        return;
-
-    }
-
-
-    case003Answers.stage3 = answer;
-
-
-    message.innerHTML = `
-
-        <span style="color:#b7ff5a;">
-            RESPONSE ARCHIVED ✓
-        </span>
-
-    `;
-
-
-    setTimeout(() => {
-
-        case003Reveal();
-
-    }, 1200);
-
-}
-
-
-/* ===================================================== */
-/* CASE 003 — BUNNY STATEMENT                          */
-/* ===================================================== */
-
-function case003Reveal() {
-
-    getActiveContainer().innerHTML = `
-
-        <div class="top-secret">
-            CASE 003 — EVIDENCE REVEALED
-        </div>
-
-        <div class="case">
-            BUNNY'S STATEMENT
-        </div>
-
-        <h1>🐰</h1>
-
-        <p style="color:#ff9ecb;">
-            READ THIS BEFORE CONTINUING.
-        </p>
-
-        <br>
-
-        <p style="line-height:1.8;">
-            I wasn't angry because you went
-            to your admission.
-        </p>
-
-        <p style="line-height:1.8;">
-            I wasn't trying to control
-            who you could take.
-        </p>
-
-        <p style="line-height:1.8;">
-            I was hurt because you knew why
-            this situation was sensitive to me.
-        </p>
-
-        <p style="line-height:1.8;">
-            I told you how I felt.
-        </p>
-
-        <p style="line-height:1.8;">
-            And on a day that mattered,
-            I felt like my feelings came second.
-        </p>
-
-        <br>
-
-        <p style="color:#b7ff5a; line-height:1.8;">
-            That's what I wanted you to understand.
-        </p>
-
-        <br>
-
-        <button
-            class="button"
-            onclick="case003Stage4()">
-
-            CONTINUE INVESTIGATION
-
-        </button>
-
-    `;
-
-}
-
-
-/* ===================================================== */
-/* CASE 003 — FINAL QUESTION                           */
-/* ===================================================== */
-
-function case003Stage4() {
-
-    getActiveContainer().innerHTML = `
-
-        <div class="top-secret">
-            CASE 003 — FINAL QUESTION
-        </div>
-
-        <div class="case">
-            AGENT FOX — FINAL STATEMENT
-        </div>
-
-        <h1>📝</h1>
-
-        <p style="color:#ffcc66;">
-            You have heard Bunny's side.
-        </p>
-
-        <br>
-
-        <h2>
-            What would you do differently?
-        </h2>
-
-        <p>
-            You get one answer.
-        </p>
-
-        <p style="color:#999;">
-            Think before submitting it.
-        </p>
-
-        <textarea
-            id="case003Stage4Answer"
-            class="assignment-textarea"
-            placeholder="What would you do differently?"
-        ></textarea>
-
-        <br>
-
-        <button
-            class="button"
-            onclick="submitCase003()">
-
-            SUBMIT FINAL STATEMENT
-
-        </button>
-
-        <p id="case003SubmitMessage"></p>
-
-    `;
-
-}
-
-
-/* ===================================================== */
-/* CASE 003 — SUBMIT                                   */
-/* ===================================================== */
-
-async function submitCase003() {
-
-    const answer =
-        document
-            .getElementById("case003Stage4Answer")
-            .value
-            .trim();
-
-
-    const message =
-        document.getElementById(
-            "case003SubmitMessage"
-        );
-
-
-    if (!answer) {
-
-        message.innerHTML = `
-
-            <span style="color:#ff3b30;">
-                FINAL STATEMENT REQUIRED, FOX. 🦊
-            </span>
-
-        `;
-
-        return;
-
-    }
-
-
-    case003Answers.stage4 = answer;
-
-
-    /*
-        TRANSMITTING FIRST
-    */
-
-    message.innerHTML = `
-
-        <span style="color:#b7ff5a;">
-            TRANSMITTING TO BUNNY HQ...
-        </span>
-
-    `;
-
-
-    try {
-
-        const response =
-            await fetch(
-                FORMSPREE_ENDPOINT,
-                {
-
-                    method: "POST",
-
-                    headers: {
-
-                        "Content-Type":
-                            "application/json",
-
-                        "Accept":
-                            "application/json"
-
-                    },
-
-                    body: JSON.stringify({
-
-                        case:
-                            "CASE 003 — THE DECISION",
-
-                        codename:
-                            "SLY FOX",
-
-                        stage1:
-                            "At which point were Bunny's feelings reasonable?",
-
-                        stage1Answer:
-                            case003Answers.stage1,
-
-                        stage2:
-                            "Role reversal — how would you feel?",
-
-                        stage2Answer:
-                            case003Answers.stage2,
-
-                        stage3:
-                            "What did your decision communicate to Bunny?",
-
-                        stage3Answer:
-                            case003Answers.stage3,
-
-                        stage4:
-                            "What would you do differently?",
-
-                        stage4Answer:
-                            case003Answers.stage4,
-
-                        status:
-                            "CASE 003 — INVESTIGATION COMPLETED"
-
-                    })
-
-                }
-            );
-
-
-        if (response.ok) {
-
-            /*
-                SUCCESS MESSAGE
-            */
-
-            message.innerHTML = `
-
-                <span style="color:#b7ff5a;">
-
-                    ✓ THEORY RECEIVED BY BUNNY HQ.
-
-                </span>
-
-            `;
-
-
-            caseProgress.case003 = true;
-
-
-            localStorage.setItem(
-                "case003Complete",
-                "true"
-            );
-
-
-            setTimeout(() => {
-
-                showCase003Completed();
-
-            }, 1500);
-
-
-        } else {
-
-            message.innerHTML = `
-
-                <span style="color:#ff3b30;">
-                    TRANSMISSION FAILED.
-                </span>
-
-                <br><br>
-
-                Please try again, Fox.
-
-            `;
-
-        }
-
-    } catch (error) {
-
-        message.innerHTML = `
-
-            <span style="color:#ff3b30;">
-                CONNECTION TO BUNNY HQ FAILED.
-            </span>
-
-            <br><br>
-
-            Please try again.
-
-        `;
-
-    }
-
-}
-
-
-/* ===================================================== */
-/* CASE 003 — COMPLETED                                */
-/* ===================================================== */
-
-function showCase003Completed() {
-
-    getActiveContainer().innerHTML = `
-
-        <div class="top-secret">
-            BUNNY HQ — CASE REPORT
-        </div>
-
-        <h1>🦊</h1>
-
-        <div class="case">
-            CASE 003 — THE DECISION
-        </div>
-
-        <h2 style="color:#b7ff5a;">
-            ✓ CASE CLOSED
-        </h2>
-
-        <p>
-            Incident reconstructed: ✓
-        </p>
-
-        <p>
-            Perspective examined: ✓
-        </p>
-
-        <p>
-            Role reversal completed: ✓
-        </p>
-
-        <p>
-            Final statement received: ✓
-        </p>
-
-        <br>
-
-        <p style="color:#ff9ecb;">
-            Bunny HQ has received your report.
-            🐰
-        </p>
-
-        <p>
-            The Bunny will decide what happens next.
-        </p>
-
-        <br>
-
-        <p style="color:#ffcc66;">
-            CASE 003 — SOLVED
-        </p>
-
-        <br>
-
-        <!-- NEW REINVESTIGATE BUTTON -->
-
-        <button
-            class="button"
-            onclick="replayCase003()">
-
-            🔄 REINVESTIGATE CASE
-
-        </button>
-
-        <br><br>
-
-        <button
-            class="button"
-            onclick="returnToHQ()">
-
-            🏠 RETURN TO HQ
-
-        </button>
-
-    `;
-
-}
-
-
-/* ===================================================== */
-/* CASE 003 — REINVESTIGATE                            */
-/* ===================================================== */
-
-function replayCase003() {
-
-    /*
-        IMPORTANT:
-        We DO NOT reset caseProgress.case003.
-
-        The case remains completed even though
-        the agent is allowed to investigate it again.
-    */
-
-    case003Answers = {
-
-        stage1: "",
-        stage2: "",
-        stage3: "",
-        stage4: ""
-
-    };
-
-
-    startCase003();
-
-}
-
-
-/* ===================================================== */
-/* RETURN TO HQ                                         */
-/* ===================================================== */
-
-function returnToHQ() {
-
-    showScreen("hqScreen");
-
-    showHQ();
-
-}
-
-
-/* ===================================================== */
-/* OPTIONAL DEVELOPER MODE                              */
-/* ===================================================== */
-
-function developerMode() {
-
-    showScreen("hqScreen");
-
-    showHQ();
-
-}
-
-</script>
-
-</body>
-</html>
+    margin-top:
