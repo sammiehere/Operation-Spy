@@ -809,7 +809,7 @@ function openCase(caseNumber) {
 function showLockedCase(caseNumber) {
 
     const titles = {
-        2: "THE BITE INCIDENTS"
+        2: "THE BITE INCIDENTS",
         3: "THE DECISION"
     };
 
@@ -1672,86 +1672,88 @@ function showHQ() {
 
             <div class="case-grid">
 
-                <!-- CASE 001 -->
+    <!-- CASE 001 -->
 
-                <button
-                    class="case-card"
-                    onclick="openCase(1)"
-                >
+    <button
+        class="case-card"
+        onclick="openCase(1)"
+    >
 
-                    <span class="case-number">
-                        CASE 001
-                    </span>
+        <span class="case-number">
+            CASE 001
+        </span>
 
-                    <span class="case-title">
-                        🩹 THE BANDAGE INCIDENT
-                    </span>
+        <span class="case-title">
+            🩹 THE BANDAGE INCIDENT
+        </span>
 
-                    <span class="case-status">
-                        ${
-                            caseProgress.case001
-                                ? "✓ CASE COMPLETED"
-                                : "FILE AVAILABLE"
-                        }
-                    </span>
+        <span class="case-status">
+            ${
+                caseProgress.case001
+                    ? "✓ CASE COMPLETED"
+                    : "FILE AVAILABLE"
+            }
+        </span>
 
-                </button>
+    </button>
 
 
-                <!-- CASE 002 -->
+    <!-- CASE 002 -->
 
-                <button
-                    class="case-card"
-                    onclick="openCase(2)"
-                >
-                <!-- CASE 003 -->
+    <button
+        class="case-card"
+        onclick="openCase(2)"
+    >
 
-<button
-    class="case-card"
-    onclick="openCase(3)"
->
+        <span class="case-number">
+            CASE 002
+        </span>
 
-    <span class="case-number">
-        CASE 003
-    </span>
+        <span class="case-title">
+            🦷 THE BITE INCIDENTS
+        </span>
 
-    <span class="case-title">
-        🦊 THE DECISION
-    </span>
+        <span class="case-status">
+            ${
+                caseProgress.case002
+                    ? "✓ CASE COMPLETED"
+                    : caseProgress.case001
+                    ? "FILE AVAILABLE"
+                    : "🔒 LOCKED — COMPLETE CASE 001"
+            }
+        </span>
 
-    <span class="case-status">
-        ${
-            caseProgress.case003
-                ? "✓ CASE COMPLETED"
-                : caseProgress.case002
-                ? "FILE AVAILABLE"
-                : "🔒 LOCKED — COMPLETE CASE 002"
-        }
-    </span>
+    </button>
 
-</button>
 
-                    <span class="case-number">
-                        CASE 002
-                    </span>
+    <!-- CASE 003 -->
 
-                    <span class="case-title">
-                        🦷 THE BITE INCIDENTS
-                    </span>
+    <button
+        class="case-card"
+        onclick="openCase(3)"
+    >
 
-                    <span class="case-status">
-                        ${
-                            caseProgress.case002
-                                ? "✓ CASE COMPLETED"
-                                : caseProgress.case001
-                                ? "FILE AVAILABLE"
-                                : "🔒 LOCKED — COMPLETE CASE 001"
-                        }
-                    </span>
+        <span class="case-number">
+            CASE 003
+        </span>
 
-                </button>
+        <span class="case-title">
+            🦊 THE DECISION
+        </span>
 
-            </div>
+        <span class="case-status">
+            ${
+                caseProgress.case003
+                    ? "✓ CASE COMPLETED"
+                    : caseProgress.case002
+                    ? "FILE AVAILABLE"
+                    : "🔒 LOCKED — COMPLETE CASE 002"
+            }
+        </span>
+
+    </button>
+
+</div>
 
         </div>
     `;
