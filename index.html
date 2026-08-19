@@ -1686,6 +1686,32 @@ function showHQ() {
                     class="case-card"
                     onclick="openCase(2)"
                 >
+                <!-- CASE 003 -->
+
+<button
+    class="case-card"
+    onclick="openCase(3)"
+>
+
+    <span class="case-number">
+        CASE 003
+    </span>
+
+    <span class="case-title">
+        🦊 THE DECISION
+    </span>
+
+    <span class="case-status">
+        ${
+            caseProgress.case003
+                ? "✓ CASE COMPLETED"
+                : caseProgress.case002
+                ? "FILE AVAILABLE"
+                : "🔒 LOCKED — COMPLETE CASE 002"
+        }
+    </span>
+
+</button>
 
                     <span class="case-number">
                         CASE 002
