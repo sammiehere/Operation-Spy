@@ -793,10 +793,24 @@ function openCase(caseNumber) {
         }
 
 }
+    else if (caseNumber === 3) {
+
+        if (caseProgress.case003) {
+            showCase003Completed();
+
+        } else if (caseProgress.case002) {
+            startCase003();
+
+        } else {
+            showLockedCase(3);
+        }
+    }
+}
 function showLockedCase(caseNumber) {
 
     const titles = {
         2: "THE BITE INCIDENTS"
+        3: "THE DECISION"
     };
 
     getActiveContainer().innerHTML = `
@@ -1616,14 +1630,16 @@ function showHQ() {
                     <span>CASE FILES</span>
 
                     <strong>
-                        ${
-                            caseProgress.case002
-                                ? "2 / 2"
-                                : caseProgress.case001
-                                ? "1 / 2"
-                                : "0 / 2"
-                        }
-                    </strong>
+    ${
+        caseProgress.case003
+            ? "3 / 3"
+            : caseProgress.case002
+            ? "2 / 3"
+            : caseProgress.case001
+            ? "1 / 3"
+            : "0 / 3"
+    }
+</strong>
                 </div>
 
             </div>
@@ -1638,12 +1654,14 @@ function showHQ() {
 
             <p class="tease">
                 ${
-                    caseProgress.case002
-                        ? "Both cases solved."
-                        : caseProgress.case001
-                        ? "One case solved."
-                        : "Your first investigation awaits."
-                }
+    caseProgress.case003
+        ? "All three cases solved."
+        : caseProgress.case002
+        ? "Two cases solved. The final investigation awaits."
+        : caseProgress.case001
+        ? "One case solved. Another investigation awaits."
+        : "Your first investigation awaits."
+}
                 <br>
                 The Bunny is watching. 😋
             </p>
@@ -1859,7 +1877,8 @@ const FORMSPREE_ENDPOINT = "https://formspree.io/f/moeandra";
 
 let caseProgress = {
     case001: localStorage.getItem("case001Complete") === "true",
-    case002: localStorage.getItem("case002Complete") === "true"
+    case002: localStorage.getItem("case002Complete") === "true",
+    case003: localStorage.getItem("case003Complete") === "true"
 };
 function completeCase002() {
 
@@ -2159,6 +2178,729 @@ function showCase002Complete() {
 
     `;
 }
+   // =============================
+// CASE 003 — THE DECISION
+// =============================
+
+let case003Answers = {
+    stage1: "",
+    stage2: "",
+    stage3: "",
+    stage4: ""
+};
+
+function startCase003() {
+
+    getActiveContainer().innerHTML = `
+
+        <div class="top-secret">
+            CLASSIFIED FILE 003
+        </div>
+
+        <div class="case">
+            CASE 003 — THE DECISION
+        </div>
+
+        <h1>🦊</h1>
+
+        <p style="color:#ffcc66;">
+            BUNNY HQ — DECISION ANALYSIS
+        </p>
+
+        <p>
+            Agent Fox, this case is different
+            from the previous investigations.
+        </p>
+
+        <p>
+            There is no puzzle to solve.
+            There is no predetermined answer.
+        </p>
+
+        <p style="color:#b7ff5a;">
+            This time, Bunny HQ wants you
+            to understand the situation.
+        </p>
+
+        <br>
+
+        <p style="color:#ff9ecb;">
+            Read each stage carefully.
+        </p>
+
+        <button
+            class="button"
+            onclick="case003Stage1()">
+            BEGIN INVESTIGATION
+        </button>
+
+        <br><br>
+
+        <button
+            class="button"
+            onclick="returnToHQ()">
+            🏠 RETURN TO HQ
+        </button>
+    `;
+}
+
+
+// =============================
+// STAGE 1 — RECONSTRUCT THE DAY
+// =============================
+
+function case003Stage1() {
+
+    getActiveContainer().innerHTML = `
+
+        <div class="top-secret">
+            CASE 003 — STAGE 01
+        </div>
+
+        <div class="case">
+            RECONSTRUCT THE DAY
+        </div>
+
+        <h1>📁</h1>
+
+        <p style="color:#b7ff5a;">
+            INCIDENT REPORT
+        </p>
+
+        <p style="text-align:left; line-height:1.8;">
+            • It was the Fox's admission day.<br><br>
+
+            • He wanted someone to accompany him.<br><br>
+
+            • The person who accompanied him
+              had a past connection with him.<br><br>
+
+            • The Bunny knew about that history.<br><br>
+
+            • The Bunny had already told the Fox
+              that she was uncomfortable with the situation.<br><br>
+
+            • The Fox knew that the situation
+              was upsetting to the Bunny.<br><br>
+
+            • Despite knowing this,
+              he still chose to take her.
+        </p>
+
+        <br>
+
+        <p style="color:#ffcc66;">
+            INVESTIGATION QUESTION
+        </p>
+
+        <h2>
+            At which point do you think
+            the Bunny's feelings became reasonable?
+        </h2>
+
+        <div class="quiz-options">
+
+            <button
+                class="quiz-option"
+                onclick="submitCase003Stage1('A')">
+
+                A. When she first heard about the plan.
+
+            </button>
+
+            <button
+                class="quiz-option"
+                onclick="submitCase003Stage1('B')">
+
+                B. When she remembered the past connection.
+
+            </button>
+
+            <button
+                class="quiz-option"
+                onclick="submitCase003Stage1('C')">
+
+                C. When she told the Fox she was uncomfortable.
+
+            </button>
+
+            <button
+                class="quiz-option"
+                onclick="submitCase003Stage1('D')">
+
+                D. When the Fox knew she was hurt
+                but made the decision anyway.
+
+            </button>
+
+            <button
+                class="quiz-option"
+                onclick="submitCase003Stage1('E')">
+
+                E. I don't think her feelings
+                were unreasonable at any point.
+
+            </button>
+
+        </div>
+
+        <p id="case003Stage1Message"></p>
+
+    `;
+}
+
+
+function submitCase003Stage1(answer) {
+
+    case003Answers.stage1 = answer;
+
+    const message =
+        document.getElementById("case003Stage1Message");
+
+    message.innerHTML = `
+        <span style="color:#b7ff5a;">
+            RESPONSE RECORDED ✓
+        </span>
+
+        <br><br>
+
+        <span>
+            Bunny HQ has recorded your perspective.
+        </span>
+    `;
+
+    setTimeout(() => {
+        case003Stage2();
+    }, 1200);
+}
+
+
+// =============================
+// STAGE 2 — ROLE REVERSAL
+// =============================
+
+function case003Stage2() {
+
+    getActiveContainer().innerHTML = `
+
+        <div class="top-secret">
+            CASE 003 — STAGE 02
+        </div>
+
+        <div class="case">
+            ROLE REVERSAL
+        </div>
+
+        <h1>🔄</h1>
+
+        <p>
+            Now forget that you are the Fox.
+        </p>
+
+        <p style="color:#ffcc66;">
+            Imagine the situation was reversed.
+        </p>
+
+        <br>
+
+        <p style="line-height:1.8;">
+            Tomorrow is an important day for the Bunny.
+        </p>
+
+        <p style="line-height:1.8;">
+            She knows there is someone from
+            her past who makes you uncomfortable.
+        </p>
+
+        <p style="line-height:1.8;">
+            You tell her how you feel.
+        </p>
+
+        <p style="line-height:1.8;">
+            She understands why you're uncomfortable.
+        </p>
+
+        <p style="line-height:1.8;">
+            And then she chooses to spend
+            that important day with him anyway.
+        </p>
+
+        <br>
+
+        <h2 style="color:#ff9ecb;">
+            How would you feel?
+        </h2>
+
+        <textarea
+            id="case003Stage2Answer"
+            class="assignment-textarea"
+            placeholder="Don't give the answer you think Bunny wants. Write what you would genuinely feel..."
+        ></textarea>
+
+        <br>
+
+        <button
+            class="button"
+            onclick="submitCase003Stage2()">
+            SUBMIT RESPONSE
+        </button>
+
+        <p id="case003Stage2Message"></p>
+
+    `;
+}
+
+
+function submitCase003Stage2() {
+
+    const answer =
+        document.getElementById("case003Stage2Answer")
+            .value
+            .trim();
+
+    const message =
+        document.getElementById("case003Stage2Message");
+
+    if (!answer) {
+
+        message.innerHTML = `
+            <span style="color:#ff3b30;">
+                RESPONSE REQUIRED, FOX. 🦊
+            </span>
+        `;
+
+        return;
+    }
+
+    case003Answers.stage2 = answer;
+
+    message.innerHTML = `
+        <span style="color:#b7ff5a;">
+            RESPONSE RECORDED ✓
+        </span>
+    `;
+
+    setTimeout(() => {
+        case003Stage3();
+    }, 1000);
+}
+
+
+// =============================
+// STAGE 3 — WHAT DID IT COMMUNICATE?
+// =============================
+
+function case003Stage3() {
+
+    getActiveContainer().innerHTML = `
+
+        <div class="top-secret">
+            CASE 003 — STAGE 03
+        </div>
+
+        <div class="case">
+            INTENT VS. IMPACT
+        </div>
+
+        <h1>⚖️</h1>
+
+        <p>
+            Bunny HQ does not want to investigate
+            what you intended.
+        </p>
+
+        <p style="color:#ffcc66;">
+            Intentions are not the question.
+        </p>
+
+        <br>
+
+        <h2>
+            What do you think your decision
+            communicated to the Bunny?
+        </h2>
+
+        <p style="color:#999;">
+            Think carefully before answering.
+        </p>
+
+        <textarea
+            id="case003Stage3Answer"
+            class="assignment-textarea"
+            placeholder="What do you think your decision communicated to her?"
+        ></textarea>
+
+        <br>
+
+        <button
+            class="button"
+            onclick="submitCase003Stage3()">
+            SUBMIT RESPONSE
+        </button>
+
+        <p id="case003Stage3Message"></p>
+
+    `;
+}
+
+
+function submitCase003Stage3() {
+
+    const answer =
+        document.getElementById("case003Stage3Answer")
+            .value
+            .trim();
+
+    const message =
+        document.getElementById("case003Stage3Message");
+
+    if (!answer) {
+
+        message.innerHTML = `
+            <span style="color:#ff3b30;">
+                BUNNY HQ REQUIRES AN ANSWER.
+            </span>
+        `;
+
+        return;
+    }
+
+    case003Answers.stage3 = answer;
+
+    message.innerHTML = `
+        <span style="color:#b7ff5a;">
+            RESPONSE ARCHIVED ✓
+        </span>
+    `;
+
+    setTimeout(() => {
+        case003Reveal();
+    }, 1200);
+}
+
+
+// =============================
+// STAGE 4 — BUNNY'S SIDE
+// =============================
+
+function case003Reveal() {
+
+    getActiveContainer().innerHTML = `
+
+        <div class="top-secret">
+            CASE 003 — EVIDENCE REVEALED
+        </div>
+
+        <div class="case">
+            BUNNY'S STATEMENT
+        </div>
+
+        <h1>🐰</h1>
+
+        <p style="color:#ff9ecb;">
+            READ THIS BEFORE CONTINUING.
+        </p>
+
+        <br>
+
+        <p style="line-height:1.8;">
+            I wasn't angry because you went
+            to your admission.
+        </p>
+
+        <p style="line-height:1.8;">
+            I wasn't trying to control
+            who you could take.
+        </p>
+
+        <p style="line-height:1.8;">
+            I was hurt because you knew why
+            this situation was sensitive to me.
+        </p>
+
+        <p style="line-height:1.8;">
+            I told you how I felt.
+        </p>
+
+        <p style="line-height:1.8;">
+            And on a day that mattered,
+            I felt like my feelings came second.
+        </p>
+
+        <br>
+
+        <p style="color:#b7ff5a; line-height:1.8;">
+            That's what I wanted you to understand.
+        </p>
+
+        <br>
+
+        <button
+            class="button"
+            onclick="case003Stage4()">
+            CONTINUE INVESTIGATION
+        </button>
+
+    `;
+}
+
+
+// =============================
+// STAGE 5 — FINAL QUESTION
+// =============================
+
+function case003Stage4() {
+
+    getActiveContainer().innerHTML = `
+
+        <div class="top-secret">
+            CASE 003 — FINAL QUESTION
+        </div>
+
+        <div class="case">
+            AGENT FOX — FINAL STATEMENT
+        </div>
+
+        <h1>📝</h1>
+
+        <p style="color:#ffcc66;">
+            You have heard Bunny's side.
+        </p>
+
+        <br>
+
+        <h2>
+            What would you do differently?
+        </h2>
+
+        <p>
+            You get one answer.
+        </p>
+
+        <p style="color:#999;">
+            Think before submitting it.
+        </p>
+
+        <textarea
+            id="case003Stage4Answer"
+            class="assignment-textarea"
+            placeholder="What would you do differently?"
+        ></textarea>
+
+        <br>
+
+        <button
+            class="button"
+            onclick="submitCase003()">
+            SUBMIT FINAL STATEMENT
+        </button>
+
+        <p id="case003SubmitMessage"></p>
+
+    `;
+}
+
+
+// =============================
+// SUBMIT CASE 003
+// =============================
+
+async function submitCase003() {
+
+    const answer =
+        document.getElementById("case003Stage4Answer")
+            .value
+            .trim();
+
+    const message =
+        document.getElementById("case003SubmitMessage");
+
+    if (!answer) {
+
+        message.innerHTML = `
+            <span style="color:#ff3b30;">
+                FINAL STATEMENT REQUIRED, FOX. 🦊
+            </span>
+        `;
+
+        return;
+    }
+
+    case003Answers.stage4 = answer;
+
+    message.innerHTML = `
+        <span style="color:#b7ff5a;">
+            TRANSMITTING FINAL REPORT TO BUNNY HQ...
+        </span>
+    `;
+
+    try {
+
+        const response = await fetch(
+            FORMSPREE_ENDPOINT,
+            {
+                method: "POST",
+
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json"
+                },
+
+                body: JSON.stringify({
+
+                    case: "CASE 003 — THE DECISION",
+
+                    codename: "SLY FOX",
+
+                    stage1:
+                        "At which point were Bunny's feelings reasonable?",
+
+                    stage1Answer:
+                        case003Answers.stage1,
+
+                    stage2:
+                        "Role reversal — how would you feel?",
+
+                    stage2Answer:
+                        case003Answers.stage2,
+
+                    stage3:
+                        "What did your decision communicate to Bunny?",
+
+                    stage3Answer:
+                        case003Answers.stage3,
+
+                    stage4:
+                        "What would you do differently?",
+
+                    stage4Answer:
+                        case003Answers.stage4,
+
+                    status:
+                        "CASE 003 — INVESTIGATION COMPLETED"
+
+                })
+            }
+        );
+
+        if (response.ok) {
+
+            caseProgress.case003 = true;
+
+            localStorage.setItem(
+                "case003Complete",
+                "true"
+            );
+
+            message.innerHTML = `
+                <span style="color:#b7ff5a;">
+
+                    ✓ FINAL STATEMENT RECEIVED.
+
+                    <br><br>
+
+                    CASE 003 — CLOSED.
+
+                </span>
+            `;
+
+            setTimeout(() => {
+                showCase003Completed();
+            }, 1500);
+
+        } else {
+
+            message.innerHTML = `
+                <span style="color:#ff3b30;">
+                    TRANSMISSION FAILED.
+                </span>
+
+                <br><br>
+
+                Please try again, Fox.
+            `;
+        }
+
+    } catch (error) {
+
+        message.innerHTML = `
+            <span style="color:#ff3b30;">
+                CONNECTION TO BUNNY HQ FAILED.
+            </span>
+
+            <br><br>
+
+            Please try again.
+        `;
+    }
+}
+
+
+// =============================
+// CASE 003 COMPLETE
+// =============================
+
+function showCase003Completed() {
+
+    getActiveContainer().innerHTML = `
+
+        <div class="top-secret">
+            BUNNY HQ — CASE REPORT
+        </div>
+
+        <h1>🦊</h1>
+
+        <div class="case">
+            CASE 003 — THE DECISION
+        </div>
+
+        <h2 style="color:#b7ff5a;">
+            ✓ CASE CLOSED
+        </h2>
+
+        <p>
+            Incident reconstructed: ✓
+        </p>
+
+        <p>
+            Perspective examined: ✓
+        </p>
+
+        <p>
+            Role reversal completed: ✓
+        </p>
+
+        <p>
+            Final statement received: ✓
+        </p>
+
+        <br>
+
+        <p style="color:#ff9ecb;">
+            Bunny HQ has received your report.
+            🐰
+        </p>
+
+        <p>
+            The Bunny will decide what happens next.
+        </p>
+
+        <br>
+
+        <p style="color:#ffcc66;">
+            CASE 003 — SOLVED
+        </p>
+
+        <br>
+
+        <button
+            class="button"
+            onclick="returnToHQ()">
+            🏠 RETURN TO HQ
+        </button>
+
+    `;
+} 
 
 </script>
 
